@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - backend
+    ports:
+      - 1883:1883
+
+networks:
+  backend:
+    driver: bridge
+    
